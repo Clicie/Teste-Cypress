@@ -1,0 +1,11 @@
+Neste arquivo possui dois arquvos de testes:
+
+*automation-exercise-testes-automatizados.cy.js
+Executar os testes nele, não está com boas práticas, mas ele está sendo executado sem erro.
+
+
+*automation-exercise-with-pom.cy.js 
+Nele o código possui boas pratícas, mas nele apresenta erro na execução de teste.
+
+
+
