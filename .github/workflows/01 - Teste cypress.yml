@@ -1,30 +1,13 @@
-name: 'Execução Pipeline n1'
-
-on:
- workflow_dispatch:
-
+name: Cypress testson: push
 jobs:
-#descricao do job
-   e2e-tests:
-    #maquina que o job vai executar  
-     runs-on: ['ubuntu-latest']
+  cypress-run:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-     steps:
-
-      - uses: actions/checkout@v4
-
-  #    - uses: actions/setup-node@v4
-  #    with:
-  #    node-version: lts/*
-
-      - name: Instalando Yarn
-        run: npm install -g yarn
- 
-      - name: Instalando dependências
-        run: yarn
-
-      - name: Instalando Cypress 
-        run: npm install
-
-       - name: Testes E2E (end-to-end)
-        run: yarn run e2e  
+      - name: Cypress run with env
+        uses: cypress-io/github-action@v6
+        env:
+          CYPRESS_host: api.dev.local
+          CYPRESS_port: 4222
